@@ -9,8 +9,10 @@
 - [How Do I Use It?](#how-do-i-use-it)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
-  - [� Clone Repo](#-clone-repo)
+  - [📥 Clone Repo](#-clone-repo)
   - [🔧 Install](#-install)
+  - [🔑 Set Secret API Keys](#-set-secret-api-keys)
+  - [📄 Place Resume in `documents` Folder](#-place-resume-in-documents-folder)
   - [🏃🏽‍♂️ Run JobHive](#️-run-jobhive)
 - [🌟 Contribute to JobHive 🌟](#-contribute-to-jobhive-)
   - [Server-Side](#server-side)
@@ -38,9 +40,9 @@ I am currently building out the client-side interface that renders the results i
 ## Getting Started
 ### Prerequisites
 
-[Poetry](https://python-poetry.org/docs/), a Python dependency management and packaging tool.
+* [Poetry](https://python-poetry.org/docs/), a Python dependency management and packaging tool.
 
-Secret API keys for [OPENAI](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key), [Serper](https://serper.dev/), and [Wolfram Alpha](https://products.wolframalpha.com/simple-api/documentation).
+* Secret API keys for [OpenAI](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key), [Serper](https://serper.dev/), [Wolfram Alpha](https://products.wolframalpha.com/simple-api/documentation), and [PromptLayer](https://promptlayer.com/).
 
 ### 📥 Clone Repo
 ```bash
@@ -51,6 +53,18 @@ git clone https://github.com/lightshifted/JobHive
 ```bash
 poetry install --with dev --with typing
 ```
+
+### 🔑 Set Secret API Keys
+```bash
+OPENAI_API_KEY=
+SERPER_API_KEY=
+WOLFRAM_ALPHA_APPID=
+PROMPTLAYER_API_KEY=
+```
+
+### 📄 Place Resume in `documents` Folder
+Be sure to rename it 
+![Alt Text](_upload.gif)
 
 ### 🏃🏽‍♂️ Run JobHive
 ```bash
