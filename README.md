@@ -1,7 +1,12 @@
 <h1 align="center">🐝 JobHive</h1>
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Join our Discord server](https://img.shields.io/discord/1103440012122542211?color=7289da&label=Discord&logo=discord&logoColor=ffffff)](https://discord.gg/RByY4Hm66j)
+
+
 <p>JobHive is an agent-actor system for job search assistance. The system includes several child agents and a parent agent. The child agents are specialized in different areas, such as job search strategy, career coaching, resume writing, interview coaching, and networking. The parent agent acts as a project manager and coordinates the child agents to assist the user in their job search.
 </p>
+<h5 align="center">
+
 
 ## Table of Contents
 
@@ -17,6 +22,7 @@
 - [🌟 Contribute to JobHive 🌟](#-contribute-to-jobhive-)
   - [Server-Side](#server-side)
   - [Client-Side](#client-side)
+  - [Agent-Actors](#agent-actors)
   - [🔥 Issues 🔥](#-issues-)
   - [🛠 Pull Requests  🛠](#-pull-requests--)
   - [💬 Discussions 💬](#-discussions-)
@@ -80,7 +86,9 @@ Thank you for considering contributing to JobHive! Below are some immediate need
 - **New LangChain tool integrations:** We are always looking to enhance our agent-actor capabilities by integrating new LangChain tools. If you have experience with natural language processing or machine learning and have ideas for new integrations, we would love to hear from you!
 
 ### Client-Side
-- **Agent-Actor Profile Customization:** We are looking to add more customization options for agent-actor profiles to better match users' needs. If you have experience with front-end development and are interested in helping us improve our customization options, we would love to hear from you!
+- **Agent-Actor Profile Customization:** We are looking to add more customization options for agent-actor profiles through a UI to better match users' needs. If you have experience with front-end development and are interested in helping us improve our customization options, we would love to hear from you!
+
+### Agent-Actors
 - **Prompt tweaks and customization:** We are always looking for ways to improve the output of our agent-actors, and this often involves tweaking and customizing the prompts that they use. If you have experience with natural language generation would like to help us improve our prompts, we would love to hear your suggestions!
 
 Thank you again for your interest in contributing to JobHive! If you have any questions or ideas for contributions beyond those listed above, please don't hesitate to reach out in our Discord channel.
