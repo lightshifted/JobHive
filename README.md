@@ -9,6 +9,8 @@
 - [How Do I Use It?](#how-do-i-use-it)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
+  - [🔧 Install](#-install)
+  - [🏃🏽‍♂️ Run JobHive](#️-run-jobhive)
   - [🌟 Contribute to JobHive 🌟](#-contribute-to-jobhive-)
   - [🔥 Issues 🔥](#-issues-)
   - [🛠 Pull Requests  🛠](#-pull-requests--)
@@ -36,12 +38,12 @@
 
 [Poetry](https://python-poetry.org/docs/), a Python dependency management and packaging tool.
 
-###🔧 Install
+### 🔧 Install
 ```bash
 poetry install --with dev --with typing
 ```
 
-###🏃🏽‍♂️ Run JobHive
+### 🏃🏽‍♂️ Run JobHive
 ```bash
 poetry run python main.py
 ```
