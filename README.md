@@ -1,4 +1,4 @@
-<h1 align="center">JobHive</h1>
+<h1 align="center">🐝 JobHive</h1>
 
 <p>JobHive is an agent-actor system for job search assistance. The system includes several child agents and a parent agent. The child agents are specialized in different areas, such as job search strategy, career coaching, resume writing, interview coaching, and networking. The parent agent acts as a project manager and coordinates the child agents to assist the user in their job search.
 </p>
