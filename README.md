@@ -15,7 +15,7 @@
   - [🔥 Issues 🔥](#-issues-)
   - [🛠 Pull Requests  🛠](#-pull-requests--)
   - [💬 Discussions 💬](#-discussions-)
-    - [Project Roadmap](#project-roadmap)
+  - [Project Roadmap](#project-roadmap)
   - [Code of Conduct](#code-of-conduct)
   - [Acknowledgments](#acknowledgments)
 
@@ -50,7 +50,6 @@ poetry run python main.py
 
 ### 🌟 Contribute to JobHive 🌟
 
-Esteemed collaborators, as we unite to create a monumental project, let us remember the words of Sir Winston Churchill, "Success is not final, failure is not fatal: it is the courage to continue that counts." Embrace our collective wisdom and join our ranks by contributing to this formidable project, following these gallant guidelines:
 
 ### 🔥 Issues 🔥
 
@@ -70,7 +69,7 @@ Esteemed collaborators, as we unite to create a monumental project, let us remem
 As we embark on this journey, let us charge forth, united in purpose and fueled by the spirit of collaboration! Together, we shall overcome all adversities and build an awesome agent-actor system for job search assistance! 🚀
 
 
-#### Project Roadmap
+### Project Roadmap
 We encourage you to explore the [project roadmap]() to discover potential ways to contribute!
 
 ### Code of Conduct
