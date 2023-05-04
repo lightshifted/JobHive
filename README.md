@@ -34,7 +34,7 @@
 ## Getting Started
 ### Prerequisites
 
-1. [Poetry](https://python-poetry.org/docs/), a Python dependency management and packaging tool.
+[Poetry](https://python-poetry.org/docs/), a Python dependency management and packaging tool.
 
 ###🔧 Install
 ```bash
