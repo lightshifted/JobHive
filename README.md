@@ -12,13 +12,13 @@
   - [🔧 Install](#-install)
   - [🏃🏽‍♂️ Run JobHive](#️-run-jobhive)
 - [🌟 Contribute to JobHive 🌟](#-contribute-to-jobhive-)
+  - [Server-Side](#server-side)
+  - [Client-Side](#client-side)
   - [🔥 Issues 🔥](#-issues-)
   - [🛠 Pull Requests  🛠](#-pull-requests--)
   - [💬 Discussions 💬](#-discussions-)
 - [Code of Conduct](#code-of-conduct)
 - [Acknowledgments](#acknowledgments)
-
-
 
 ## How Do I Use It?
 <h4>1️⃣ Upload your resume</p></h4> 
@@ -52,6 +52,18 @@ poetry run python jobhive.py
 ```
 
 ## 🌟 Contribute to JobHive 🌟
+
+Thank you for considering contributing to JobHive! Below are some immediate needs that I have identified, but I welcome any contributions that you think could help optimize the project.
+
+### Server-Side
+- **API Integration with Socket-IO:** We are looking to implement real-time communication of agent-actor results to the client-side using Socket-IO. If you have experience with Socket-IO or real-time communication, we would love to hear your thoughts!
+- **New LangChain tool integrations:** We are always looking to enhance our agent-actor capabilities by integrating new LangChain tools. If you have experience with natural language processing or machine learning and have ideas for new integrations, we would love to hear from you!
+
+### Client-Side
+- **Agent-Actor Profile Customization:** We are looking to add more customization options for agent-actor profiles to better match users' needs. If you have experience with front-end development and are interested in helping us improve our customization options, we would love to hear from you!
+- **Prompt tweaks and customization:** We are always looking for ways to improve the output of our agent-actors, and this often involves tweaking and customizing the prompts that they use. If you have experience with natural language generation would like to help us improve our prompts, we would love to hear your suggestions!
+
+Thank you again for your interest in contributing to JobHive! If you have any questions or ideas for contributions beyond those listed above, please don't hesitate to reach out in our Discord channel.
 
 ### 🔥 Issues 🔥
 
