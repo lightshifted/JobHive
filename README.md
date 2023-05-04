@@ -32,10 +32,14 @@
 
 ![Alt Text](_results.gif)
 
+I am currently building out the client-side interface that renders the results in a more user-friendly way. An example of rendered output can be viewed [here](rendered_output.pdf). For now, you can view the results in the terminal and in the `agent_interactions` folder.
+
 ## Getting Started
 ### Prerequisites
 
 [Poetry](https://python-poetry.org/docs/), a Python dependency management and packaging tool.
+
+Secret API keys for [OPENAI](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key), [Serper](https://serper.dev/), and [Wolfram Alpha](https://products.wolframalpha.com/simple-api/documentation).
 
 ### 🔧 Install
 ```bash
@@ -44,7 +48,7 @@ poetry install --with dev --with typing
 
 ### 🏃🏽‍♂️ Run JobHive
 ```bash
-poetry run python main.py
+poetry run python jobhive.py
 ```
 
 ## 🌟 Contribute to JobHive 🌟
