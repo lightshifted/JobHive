@@ -11,13 +11,12 @@
   - [Prerequisites](#prerequisites)
   - [🔧 Install](#-install)
   - [🏃🏽‍♂️ Run JobHive](#️-run-jobhive)
-  - [🌟 Contribute to JobHive 🌟](#-contribute-to-jobhive-)
+- [🌟 Contribute to JobHive 🌟](#-contribute-to-jobhive-)
   - [🔥 Issues 🔥](#-issues-)
   - [🛠 Pull Requests  🛠](#-pull-requests--)
   - [💬 Discussions 💬](#-discussions-)
-  - [Project Roadmap](#project-roadmap)
-  - [Code of Conduct](#code-of-conduct)
-  - [Acknowledgments](#acknowledgments)
+- [Code of Conduct](#code-of-conduct)
+- [Acknowledgments](#acknowledgments)
 
 
 
@@ -48,8 +47,7 @@ poetry install --with dev --with typing
 poetry run python main.py
 ```
 
-### 🌟 Contribute to JobHive 🌟
-
+## 🌟 Contribute to JobHive 🌟
 
 ### 🔥 Issues 🔥
 
@@ -69,13 +67,10 @@ poetry run python main.py
 As we embark on this journey, let us charge forth, united in purpose and fueled by the spirit of collaboration! Together, we shall overcome all adversities and build an awesome agent-actor system for job search assistance! 🚀
 
 
-### Project Roadmap
-We encourage you to explore the [project roadmap]() to discover potential ways to contribute!
-
-### Code of Conduct
+## Code of Conduct
 We are building a tool to help people find jobs. As such, it's important people from all walks of life feel welcomed to contribute their time and talents to this project. We expect all contributors to adhere to the [Code of Conduct](CODE_OF_CONDUCT.md). Please read it. Please follow it. Please help us keep this project a safe and welcoming space for everyone.
 
-### Acknowledgments
+## Acknowledgments
 
 We would like to express our gratitude to the following projects and their contributors for their inspiration and valuable resources:
 
