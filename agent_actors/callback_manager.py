@@ -20,6 +20,9 @@ class ConsolePrettyPrinter(StdOutCallbackHandler):
         super().__init__()
         self.file_path = file_path
 
+        if self.file_path:
+            os.makedirs(self.file_path, exist_ok=True)
+
     def on_chain_end(self, outputs: Dict[str, Any], **kwargs: Any) -> None:
         super().on_chain_end(outputs, **kwargs)
         pprint(outputs)
