@@ -9,14 +9,15 @@
 - [How Do I Use It?](#how-do-i-use-it)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Run JobHive](#run-jobhive)
-  - [Contribute to JobHive](#contribute-to-jobhive)
+  - [🌟 Contribute to JobHive 🌟](#-contribute-to-jobhive-)
+  - [🔥 Issues 🔥](#-issues-)
+  - [🛠 Pull Requests  🛠](#-pull-requests--)
+  - [💬 Discussions 💬](#-discussions-)
     - [Project Roadmap](#project-roadmap)
-    - [Requests for Pull Requests](#requests-for-pull-requests)
   - [Code of Conduct](#code-of-conduct)
-  - [Contact](#contact)
   - [Acknowledgments](#acknowledgments)
+
+
 
 ## How Do I Use It?
 <h4>1️⃣ Upload your resume</p></h4> 
@@ -30,30 +31,48 @@
 
 ![Alt Text](_results.gif)
 
-
-
-
 ## Getting Started
 ### Prerequisites
 
-1. Python 3.10.6 or higher
-2. Poetry, a Python dependency management and packaging tool: [https://python-poetry.org/docs/](https://python-poetry.org/docs/)
+1. [Poetry](https://python-poetry.org/docs/), a Python dependency management and packaging tool.
 
-### Installation
-Install dependencies
+###🔧 Install
 ```bash
 poetry install --with dev --with typing
 ```
 
-### Run JobHive
+###🏃🏽‍♂️ Run JobHive
+```bash
+poetry run python main.py
+```
 
-### Contribute to JobHive
+### 🌟 Contribute to JobHive 🌟
+
+Esteemed collaborators, as we unite to create a monumental project, let us remember the words of Sir Winston Churchill, "Success is not final, failure is not fatal: it is the courage to continue that counts." Embrace our collective wisdom and join our ranks by contributing to this formidable project, following these gallant guidelines:
+
+### 🔥 Issues 🔥
+
+1. **Boldly Raise Your Voice:** Create an issue for any bug or improvement.
+2. **Be Specific, Be Fearless:** Provide precise information for the issue.
+
+### 🛠 Pull Requests  🛠
+
+1. **The March of the Brave:** Create a branch from the master, giving it a meaningful name.
+2. **Commit with Passion, Push with Purpose:** Keep commits concise and meaningful.
+
+### 💬 Discussions 💬
+
+1. **The Forum of the Fearless:** Engage in discussions, propose ideas, features, or improvements.
+2. **Respect, Honor, and Civility:** Treat all participants with the utmost respect.
+
+As we embark on this journey, let us charge forth, united in purpose and fueled by the spirit of collaboration! Together, we shall overcome all adversities and build an awesome agent-actor system for job search assistance! 🚀
+
+
 #### Project Roadmap
-#### Requests for Pull Requests
+We encourage you to explore the [project roadmap]() to discover potential ways to contribute!
 
 ### Code of Conduct
-
-### Contact
+We are building a tool to help people find jobs. As such, it's important people from all walks of life feel welcomed to contribute their time and talents to this project. We expect all contributors to adhere to the [Code of Conduct](CODE_OF_CONDUCT.md). Please read it. Please follow it. Please help us keep this project a safe and welcoming space for everyone.
 
 ### Acknowledgments
 
