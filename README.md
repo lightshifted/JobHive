@@ -9,6 +9,7 @@
 - [How Do I Use It?](#how-do-i-use-it)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
+  - [� Clone Repo](#-clone-repo)
   - [🔧 Install](#-install)
   - [🏃🏽‍♂️ Run JobHive](#️-run-jobhive)
 - [🌟 Contribute to JobHive 🌟](#-contribute-to-jobhive-)
@@ -40,6 +41,11 @@ I am currently building out the client-side interface that renders the results i
 [Poetry](https://python-poetry.org/docs/), a Python dependency management and packaging tool.
 
 Secret API keys for [OPENAI](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key), [Serper](https://serper.dev/), and [Wolfram Alpha](https://products.wolframalpha.com/simple-api/documentation).
+
+### 📥 Clone Repo
+```bash
+git clone https://github.com/lightshifted/JobHive
+```
 
 ### 🔧 Install
 ```bash
