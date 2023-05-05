@@ -54,8 +54,8 @@ def display_memories(input_dict: dict):
             pass
 
 def display_results(input_dict: dict):
-    agent_results = input_dict["results"]
-    confidence = agent_results[1]['confidence']
+    agent_results = input_dict["results"][1]
+    confidence = agent_results['confidence']
     speak = agent_results[1]['speak']
     result = agent_results[1]['result']
     print(colored("\n 📊 Agent Results 📊", "yellow"))
