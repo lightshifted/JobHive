@@ -82,7 +82,6 @@ poetry run python jobhive.py
 Thank you for considering contributing to JobHive! Below are some immediate needs that I have identified, but I welcome any contributions that you think could help optimize the project.
 
 ### Server-Side
-- **API Integration with Socket-IO:** We are looking to implement real-time communication of agent-actor results to the client-side using Socket-IO. If you have experience with Socket-IO or real-time communication, we would love to hear your thoughts!
 - **New LangChain tool integrations:** We are always looking to enhance our agent-actor capabilities by integrating new LangChain tools. If you have experience with natural language processing or machine learning and have ideas for new integrations, we would love to hear from you!
 
 ### Client-Side
