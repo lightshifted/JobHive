@@ -74,7 +74,7 @@ class Check(LLMChain):
             prompt=PromptTemplate.from_template(
                 dedent(
                     """\
-                    You are evaluating the result of an AI agent against its task to verify its accurate compmletion.
+                    You are evaluating the result of an AI agent against its task to verify its accurate completion.
 
                     Here is the relevant context: {context}
 
