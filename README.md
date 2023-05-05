@@ -28,18 +28,37 @@
 - [Acknowledgments](#acknowledgments)
 
 ## How Do I Use It?
-<h4>1️⃣ Upload your resume</p></h4> 
+These steps run JobHive after you've completed the initial setup (see: [Getting Started](#getting-started))
+
+<h4>1️⃣ Start FastAPI</p></h4>
+```bash
+poetry run uvicorn api:app --reload
+```
+
+<h4>2️⃣ Upload a resume</p></h4>
 
 ![Alt Text](_upload.gif)
-<h4>2️⃣ Activate agent-actors</h4>
+Be sure to rename the resume file to `doc.pdf`
+
+<h4>3️⃣ Activate agent-actors</h4>
+```bash
+curl http://localhost:8000/api/activate
+```
+You can switch to the server terminal to view agent-actor output in real-time.
 
 ![Alt Text](_activate.gif)
 
-<h4>3️⃣ View results</h4>
+<h4>4️⃣ View results</h4>
+<h5>Tasks</h5>
+```bash
+curl http://localhost:8000/api/agent-profiles
+```
+<h5>Memories</h5>
+```bash
+curl http://localhost:8000/api/agent-memories
+```
 
-![Alt Text](_results.gif)
-
-I am currently building out the client-side interface that renders the results in a more user-friendly way. An example of rendered output can be viewed [here](rendered_output.pdf). For now, you can view the results in the terminal and in the `agent_interactions` folder.
+I am currently building out the client-side interface that renders the results in a more user-friendly way. An example of rendered output can be viewed [here](rendered_output.pdf). For now, you can view the results in the server terminal using the `curl` commands above.
 
 ## Getting Started
 ### Prerequisites

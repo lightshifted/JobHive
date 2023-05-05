@@ -133,3 +133,6 @@ dmypy.json
 # agent response records
 client_data/agent_interactions/*
 client_data/documents/doc.pdf
+
+# chomadb 
+client_data/choma/

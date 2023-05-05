@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "JobHive"
 version = "0.1.0"
-description = "a proof-of-concept inspired by BabyAGI, Agent-Actors, the Plan-Do-Check-Adjust (PDCA) cycle, and the actor model of concurrency"
+description = "A proof-of-concept inspired by BabyAGI, Agent-Actors, the Plan-Do-Check-Adjust (PDCA) cycle, and the actor model of concurrency"
 authors = ["Jason Wheeler"]
-license = "BUSL-1.1"
+license = "MIT"
 readme = "README.md"
 
 [tool.ruff]
@@ -25,6 +25,9 @@ promptlayer = "^0.1.80"
 chromadb = "^0.3.21"
 pymupdf = "^1.21.1"
 ray = { extras = ["default"], version = "^2.3.1" }
+fastapi = "^0.95.1"
+python-multipart = "^0.0.6"
+uvicorn = "^0.22.0"
 
 [tool.poetry.group.typing]
 optional = true

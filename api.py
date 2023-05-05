@@ -5,7 +5,7 @@ from fastapi import FastAPI, File, UploadFile
 
 from agent_actors.run import JobHive
 
-from utils.terminal_display import (
+from utils.style_outputs import (
     display_children,
     display_memories,
     display_results,
@@ -143,6 +143,7 @@ async def get_results():
 
     response_data = {"matching_files": matching_files, "results": results}
     return display_results(response_data)
+
 
 @app.get('/api/tasks')
 async def get_results():
