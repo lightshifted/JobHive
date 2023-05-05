@@ -39,6 +39,7 @@ poetry run uvicorn api:app --reload
 <h4>2️⃣ Upload a resume</p></h4>
 
 ![Alt Text](_upload.gif)
+
 Be sure to rename the resume file to `doc.pdf`
 
 <h4>3️⃣ Activate agent-actors</h4>
