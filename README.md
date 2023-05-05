@@ -20,6 +20,7 @@
   - [📄 Place Resume in `documents` Folder](#-place-resume-in-documents-folder)
   - [🏃🏽‍♂️ Run JobHive](#️-run-jobhive)
 - [🌟 Contribute to JobHive 🌟](#-contribute-to-jobhive-)
+  - [Improving Agent-Actors](#improving-agent-actors)
   - [🔥 Issues 🔥](#-issues-)
   - [🛠 Pull Requests  🛠](#-pull-requests--)
   - [💬 Discussions 💬](#-discussions-)
@@ -66,7 +67,7 @@ PROMPTLAYER_API_KEY=
 ```
 
 ### 📄 Place Resume in `documents` Folder
-Be sure to rename it 
+Be sure to rename the resume file to `doc.pdf`
 ![Alt Text](_upload.gif)
 
 ### 🏃🏽‍♂️ Run JobHive
