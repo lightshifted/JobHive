@@ -67,8 +67,9 @@ PROMPTLAYER_API_KEY=
 ```
 
 ### 📄 Place Resume in `documents` Folder
-Be sure to rename the resume file to `doc.pdf`
 ![Alt Text](_upload.gif)
+
+Be sure to rename the resume file to `doc.pdf`
 
 ### 🏃🏽‍♂️ Run JobHive
 ```bash
