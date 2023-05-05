@@ -31,6 +31,7 @@
 These steps run JobHive after you've completed the initial setup (see: [Getting Started](#getting-started))
 
 <h4>1️⃣ Start FastAPI</p></h4>
+
 ```bash
 poetry run uvicorn api:app --reload
 ```
@@ -41,19 +42,25 @@ poetry run uvicorn api:app --reload
 Be sure to rename the resume file to `doc.pdf`
 
 <h4>3️⃣ Activate agent-actors</h4>
+
 ```bash
 curl http://localhost:8000/api/activate
 ```
+
 You can switch to the server terminal to view agent-actor output in real-time.
 
 ![Alt Text](_activate.gif)
 
 <h4>4️⃣ View results</h4>
+
 <h5>Tasks</h5>
+
 ```bash
 curl http://localhost:8000/api/agent-profiles
 ```
+
 <h5>Memories</h5>
+
 ```bash
 curl http://localhost:8000/api/agent-memories
 ```
