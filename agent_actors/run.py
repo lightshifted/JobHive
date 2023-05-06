@@ -16,7 +16,7 @@ from agent_actors.callback_manager import ConsolePrettyPrintManager
 from agent_actors.child import ChildAgent
 from agent_actors.parent import ParentAgent
 from agent_actors.toolkit import default_toolkit
-from agent_actors.generate_summary import DocSummarizer
+from agent_actors.summarizer import DocSummarizer
 
 class JobHive:
     llm: BaseChatModel

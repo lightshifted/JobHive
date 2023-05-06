@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Watcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #messages {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>File Watcher</h1>
+    <div id="messages"></div>
+
+    <script>
+        const messages = document.getElementById('messages');
+        const websocket = new WebSocket('ws://localhost:8000/ws');
+
+        websocket.onopen = (event) => {
+            console.log('WebSocket connected:', event);
+            websocket.send('ping');
+        };
+
+        websocket.onmessage = (event) => {
+            const message = document.createElement('p');
+            message.textContent = event.data;
+            messages.appendChild(message);
+            messages.scrollTop = messages.scrollHeight;
+        };
+
+        websocket.onclose = (event) => {
+            console.log('WebSocket disconnected:', event);
+        };
+
+        websocket.onerror = (error) => {
+            console.log('WebSocket error:', error);
+        };
+    </script>
+</body>
+</html>

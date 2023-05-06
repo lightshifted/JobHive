@@ -7,4 +7,4 @@ from agent_actors.callback_manager import (
 from agent_actors.child import ChildAgent
 from agent_actors.models import TaskRecord, TaskRef
 from agent_actors.parent import ParentAgent
-from agent_actors.generate_summary import DocSummarizer
+from agent_actors.summarizer import DocSummarizer
