@@ -1,58 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSocket JSON Renderer</title>
-    <style>
-        pre {
-            background-color: #f0f0f0;
-            padding: 1rem;
-            border-radius: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Websocket Test</title>
 </head>
 <body>
-    <h1>Received JSON Data:</h1>
-    <pre id="json-data"></pre>
+  <div id="messages"></div>
+<script>
+  const websocket = new WebSocket("ws://localhost:8765/");
+  const messagesElement = document.getElementById("messages");
 
-    <script>
-// Set up a WebSocket connection
-const socket = new WebSocket('ws://localhost:2000/');
-
-// Connection opened
-socket.addEventListener('open', (event) => {
-    console.log('WebSocket connection opened:', event);
-    const jsonDataElement = document.getElementById('json-data');
-    jsonDataElement.textContent = 'WebSocket connection opened.';
-});
-
-// Listen for messages
-socket.addEventListener('message', (event) => {
-    console.log('WebSocket message received:', event);
-
-    // Parse the JSON data
-    const jsonData = JSON.parse(event.data);
-
-    // Update the DOM
-    const jsonDataElement = document.getElementById('json-data');
-    jsonDataElement.textContent = JSON.stringify(jsonData, null, 2);
-});
-
-// Connection closed
-socket.addEventListener('close', (event) => {
-    console.log('WebSocket connection closed:', event);
-    const jsonDataElement = document.getElementById('json-data');
-    jsonDataElement.textContent = 'WebSocket connection closed.';
-});
-
-// Connection error
-socket.addEventListener('error', (event) => {
-    console.error('WebSocket error:', event);
-    const jsonDataElement = document.getElementById('json-data');
-    jsonDataElement.textContent = 'WebSocket error occurred.';
-});
-
-    </script>
+  websocket.addEventListener("message", event => {
+    const message = JSON.parse(event.data);
+    const newElement = document.createElement("p");
+    newElement.textContent = message;
+    messagesElement.appendChild(newElement);
+  });
+  </script>
 </body>
 </html>
