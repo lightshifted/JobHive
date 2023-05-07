@@ -3,9 +3,12 @@ from watchdog.events import FileSystemEventHandler
 import time
 import json
 import queue
+import threading
+from fastapi import FastAPI
 
 from typing import List, Dict, Callable
 
+app = FastAPI()
 
 class FileEventHandler(FileSystemEventHandler):
     """
@@ -47,7 +50,14 @@ class FileEventHandler(FileSystemEventHandler):
 
 data_queue = queue.Queue() # For threadsafe communication between threads
 
-def monitor_directory(path: str, data_queue: queue.Queue = data_queue):
+import websocket
+import io
+import asyncio
+
+ws = websocket.WebSocket()
+ws.connect("ws://localhost:2000/")
+
+def monitor_directory(path: str, data_queue: queue.Queue = data_queue, ws: websocket.WebSocket = ws):
     """
     Monitor a directory for file system events.
 
@@ -59,6 +69,7 @@ def monitor_directory(path: str, data_queue: queue.Queue = data_queue):
         A queue to send data from the file to a separate thread.
     """
     print("Monitoring directory " + path)
+
     event_handler = FileEventHandler(data_queue)
     observer = Observer()
     observer.schedule(event_handler, path, recursive=True)
@@ -69,12 +80,15 @@ def monitor_directory(path: str, data_queue: queue.Queue = data_queue):
             try:
                 data = data_queue.get(timeout=1)
                 print("Data received: " + str(data))
+                ws.send(json.dumps(data))
             except queue.Empty:
                 pass
             time.sleep(1)
     except KeyboardInterrupt:
         observer.stop()
+        # ws.close()
     observer.join()
+    print("end of script")
 
 
 if __name__ == "__main__":

@@ -1,21 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Websocket Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Messages</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #messages {
+      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      overflow-y: scroll;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    #messages div {
+      margin-bottom: 0.5rem;
+    }
+  </style>
 </head>
 <body>
+  <h1 style="align-items: center">WebSocket Test</h1>
   <div id="messages"></div>
-<script>
-  const websocket = new WebSocket("ws://localhost:8765/");
-  const messagesElement = document.getElementById("messages");
+  <script>
+    const messages = document.getElementById("messages");
+    const websocket = new WebSocket("ws://localhost:2000");
+  
+    websocket.onopen = () => {
+      console.log("WebSocket connection opened");
+    };
+  
+    websocket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      const message = document.createElement("div");
+      message.textContent = data.memory_content;
+      messages.appendChild(message);
+      messages.scrollTop = messages.scrollHeight; // Scroll to the bottom
 
-  websocket.addEventListener("message", event => {
-    const message = JSON.parse(event.data);
-    const newElement = document.createElement("p");
-    newElement.textContent = message;
-    messagesElement.appendChild(newElement);
-  });
+      if (event.data.startsWith("Message received: ")) {
+        console.log("Acknowledgment received from server:", event.data);
+      }
+    };
+  
+    websocket.onclose = () => {
+      console.log("WebSocket connection closed");
+    };
+  
+    websocket.onerror = (error) => {
+      console.error("WebSocket error:", error);
+    };
+
+    window.addEventListener("beforeunload", (event) => {
+      event.preventDefault();
+      websocket.send("closing");
+    });
   </script>
 </body>
 </html>

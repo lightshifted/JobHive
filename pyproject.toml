@@ -28,6 +28,8 @@ ray = { extras = ["default"], version = "^2.3.1" }
 fastapi = "^0.95.1"
 python-multipart = "^0.0.6"
 uvicorn = "^0.22.0"
+aiofiles = "^23.1.0"
+aiomisc = "^17.2.2"
 
 [tool.poetry.group.typing]
 optional = true
