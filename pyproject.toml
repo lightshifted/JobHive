@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "JobHive"
+version = "0.1.0"
+description = "A proof-of-concept inspired by BabyAGI, Agent-Actors, the Plan-Do-Check-Adjust (PDCA) cycle, and the actor model of concurrency"
+authors = ["Jason Wheeler"]
+license = "MIT"
+readme = "README.md"
+
+[tool.ruff]
+line-length = -1
+
+[tool.poetry.dependencies]
+python = "^3.10.6"
+aiohttp = "^3.8.4"
+pydantic = "^1.10.7"
+langchain = "^0.0.153"
+wolframalpha = "^5.0.0"
+python-dotenv = "^1.0.0"
+openai = "^0.27.4"
+wikipedia = "^1.4.0"
+tiktoken = "^0.3.3"
+gptcache = "^0.1.17"
+termcolor = "^2.2.0"
+promptlayer = "^0.1.80"
+chromadb = "^0.3.21"
+pymupdf = "^1.21.1"
+ray = { extras = ["default"], version = "^2.3.1" }
+fastapi = "^0.95.1"
+python-multipart = "^0.0.6"
+uvicorn = "^0.22.0"
+
+[tool.poetry.group.typing]
+optional = true
+
+[tool.poetry.group.typing.dependencies]
+mypy = "^1.2.0"
+types-pyyaml = "^6.0.12.9"
+types-requests = "^2.28.11.17"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+setuptools = "^67.6.1"
+ipdb = "^0.13.13"
+faiss-cpu = "^1.7.3"
+black = "^23.3.0"
+ipython = "^8.12.0"
+ruff = "^0.0.261"
+streamlit = "^1.21.0"
+pytest = "^7.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
