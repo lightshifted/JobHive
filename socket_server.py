@@ -1,0 +1,39 @@
+import asyncio
+import websockets
+
+async def handle_websocket(websocket, path):
+    """
+    A callback function to handle incoming WebSocket connections.
+    """
+    print(f"WebSocket client connected: {websocket.remote_address}")
+    try:
+        async for message in websocket:
+            print(f"Received message from client: {message}")
+    except websockets.ConnectionClosedError as e:
+        print(f"WebSocket client disconnected: {websocket.remote_address} with exception: {e}")
+    except Exception as e:
+        print(f"WebSocket error: {e}")
+    finally:
+        print(f"WebSocket client disconnected: {websocket.remote_address}")
+
+async def start_websocket_server():
+    """
+    Start the WebSocket server on localhost:2000.
+    """
+    server = await websockets.serve(handle_websocket, "localhost", 2000)
+    try:
+        await server.wait_closed()
+    except asyncio.CancelledError:
+        pass
+    finally:
+        server.close()
+
+if __name__ == "__main__":
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.create_task(start_websocket_server())
+    print("✔ WebSocket server started!")
+    try:
+        loop.run_forever()
+    except KeyboardInterrupt:
+        loop.close()
