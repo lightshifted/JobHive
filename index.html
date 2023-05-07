@@ -1,64 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebSocket Messages</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-
-    #messages {
-      border: 1px solid #ccc;
-      width: 100%;
-      max-width: 600px;
-      height: 400px;
-      overflow-y: scroll;
-      margin: 0 auto;
-      padding: 1rem;
-    }
-
-    #messages div {
-      margin-bottom: 0.5rem;
-    }
-  </style>
+	<title>WebSocket Test</title>
+	<meta charset="UTF-8">
 </head>
 <body>
-  <h1 style="align-items: center">WebSocket Test</h1>
-  <div id="messages"></div>
-  <script>
-    const messages = document.getElementById("messages");
-    const websocket = new WebSocket("ws://localhost:2000");
-  
-    websocket.onopen = () => {
-      console.log("WebSocket connection opened");
-    };
-  
-    websocket.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      const message = document.createElement("div");
-      message.textContent = data.memory_content;
-      messages.appendChild(message);
-      messages.scrollTop = messages.scrollHeight; // Scroll to the bottom
+	<h1>WebSocket Test</h1>
+	<p>Open the browser console to see WebSocket messages.</p>
 
-      if (event.data.startsWith("Message received: ")) {
-        console.log("Acknowledgment received from server:", event.data);
-      }
-    };
-  
-    websocket.onclose = () => {
-      console.log("WebSocket connection closed");
-    };
-  
-    websocket.onerror = (error) => {
-      console.error("WebSocket error:", error);
-    };
+	<script>
+		// Open WebSocket connection to localhost:2000
+		const ws = new WebSocket("ws://localhost:2000");
 
-    window.addEventListener("beforeunload", (event) => {
-      event.preventDefault();
-      websocket.send("closing");
-    });
-  </script>
+		// Log WebSocket events to console
+		ws.addEventListener("open", (event) => {
+			console.log("WebSocket connection opened.", event);
+		});
+
+		ws.addEventListener("message", (event) => {
+			console.log("Received message from server:", event.data);
+		});
+
+		ws.addEventListener("close", (event) => {
+			console.log("WebSocket connection closed.", event);
+		});
+
+		ws.addEventListener("error", (event) => {
+			console.error("WebSocket error:", event);
+		});
+	</script>
 </body>
 </html>
