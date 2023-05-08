@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { List, Card, Typography, Spin } from 'antd';
 import { ApiOutlined } from '@ant-design/icons';
 
 const { Title } = Typography;
 
-
 const App = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const listRef = useRef(null);
 
   useEffect(() => {
     setLoading(true);
@@ -41,6 +41,23 @@ const App = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (listRef.current) {
+      listRef.current.scrollTo({ top: listRef.current.scrollHeight, behavior: 'smooth' });
+    }
+  }, [messages]);
+
+  const renderMemoryContent = (content) => {
+    const lines = content.replace('[[MEMORY]]', '').split('\n');
+    return (
+      <div style={{ textAlign: 'left' }}>
+        {lines.map((line, index) => (
+          <Typography.Paragraph key={index}>{line}</Typography.Paragraph>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <Card>
       <Title level={2}>
@@ -53,9 +70,12 @@ const App = () => {
           dataSource={messages}
           renderItem={(item) => (
             <List.Item>
-              <Typography.Text>{JSON.stringify(item)}</Typography.Text>
+              <Card>
+                {renderMemoryContent(item.memory_content)}
+              </Card>
             </List.Item>
           )}
+          ref={listRef}
         />
       )}
     </Card>
