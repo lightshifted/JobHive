@@ -4,11 +4,16 @@ import time
 import json
 import queue
 import threading
+import websocket
 from fastapi import FastAPI
 
 from typing import List, Dict, Callable
 
 app = FastAPI()
+
+data_queue = queue.Queue() # For threadsafe communication between threads
+data_available = threading.Condition() # We use condition variables to detect when data is available
+ws_url = "ws://localhost:2000/"
 
 class FileEventHandler(FileSystemEventHandler):
     """
@@ -22,12 +27,6 @@ class FileEventHandler(FileSystemEventHandler):
     def __init__(self, data_queue: queue.Queue):
         self.data_queue = data_queue
 
-    def on_modified(self, event):
-        """
-        Handler function for file modification events.
-        """
-        print(f"File modified: {event.src_path}")
-
     def on_created(self, event):
         """
         Handler function for file creation events.
@@ -37,27 +36,26 @@ class FileEventHandler(FileSystemEventHandler):
         with open(event.src_path, "r") as file:
             try:
                 data = json.load(file)
-                self.data_queue.put(data) # Send the data to a separate thread
+                with data_available:
+                    self.data_queue.put(data)
+                    data_available.notify()
             except json.JSONDecodeError:
                 print("JSONDecodeError")
 
-    def on_deleted(self, event):
-        """
-        Handler function for file deletion events.
-        """
-        print(f"File deleted: {event.src_path}")
 
+def on_open(ws):
+    print("WebSocket connection opened.")
 
-data_queue = queue.Queue() # For threadsafe communication between threads
+def on_message(ws, message):
+    print("WebSocket received message: " + message)
 
-import websocket
-import io
-import asyncio
+def on_error(ws, error):
+    print("WebSocket encountered an error: " + str(error))
 
-ws = websocket.WebSocket()
-ws.connect("ws://localhost:2000/")
+def on_close(ws):
+    print("WebSocket connection closed.")
 
-def monitor_directory(path: str, data_queue: queue.Queue = data_queue, ws: websocket.WebSocket = ws):
+def monitor_directory(path: str, data_queue: queue.Queue = data_queue):
     """
     Monitor a directory for file system events.
 
@@ -75,18 +73,25 @@ def monitor_directory(path: str, data_queue: queue.Queue = data_queue, ws: webso
     observer.schedule(event_handler, path, recursive=True)
     observer.start()
 
+    ws = websocket.WebSocketApp(ws_url,
+                                 on_open=on_open,
+                                 on_message=on_message,
+                                 on_error=on_error,
+                                 on_close=on_close)
+    ws_thread = threading.Thread(target=ws.run_forever)
+    ws_thread.start()
+
     try:
         while True:
-            try:
-                data = data_queue.get(timeout=1)
-                print("Data received: " + str(data))
-                ws.send(json.dumps(data))
-            except queue.Empty:
-                pass
-            time.sleep(1)
+            with data_available:
+                data_available.wait()
+                data = data_queue.get()
+            print("Data received: " + str(data))
+            ws.send(json.dumps(data))
+
     except KeyboardInterrupt:
         observer.stop()
-        # ws.close()
+        ws.close()
     observer.join()
     print("end of script")
 

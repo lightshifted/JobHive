@@ -1,19 +1,29 @@
 import asyncio
 import websockets
 
-async def handle_websocket(websocket, path):
+connected_clients = set()
+
+async def handle_websocket(websocket):
     """
     A callback function to handle incoming WebSocket connections.
     """
     print(f"WebSocket client connected: {websocket.remote_address}")
+    connected_clients.add(websocket)
+
     try:
         async for message in websocket:
             print(f"Received message from client: {message}")
+
+            # Broadcast the message to all connected clients except the sender
+            for client in connected_clients:
+                if client != websocket:
+                    await client.send(message)
     except websockets.ConnectionClosedError as e:
         print(f"WebSocket client disconnected: {websocket.remote_address} with exception: {e}")
     except Exception as e:
         print(f"WebSocket error: {e}")
     finally:
+        connected_clients.remove(websocket)
         print(f"WebSocket client disconnected: {websocket.remote_address}")
 
 async def start_websocket_server():
