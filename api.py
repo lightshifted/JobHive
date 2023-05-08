@@ -2,6 +2,7 @@ import os
 import json
 import shutil
 from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 import threading
 
 from agent_actors.run import JobHive
@@ -13,6 +14,15 @@ from utils.style_outputs import (
 )
 
 app = FastAPI()
+
+# Configure CORS Middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # client-side application domain(s)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post('/api/file-upload')
 async def upload_file(file: UploadFile = File(...)):
