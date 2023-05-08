@@ -55,6 +55,7 @@ def on_error(ws, error):
 def on_close(ws):
     print("WebSocket connection closed.")
 
+
 def monitor_directory(path: str, data_queue: queue.Queue = data_queue):
     """
     Monitor a directory for file system events.
@@ -74,26 +75,28 @@ def monitor_directory(path: str, data_queue: queue.Queue = data_queue):
     observer.start()
 
     ws = websocket.WebSocketApp(ws_url,
-                                 on_open=on_open,
-                                 on_message=on_message,
-                                 on_error=on_error,
-                                 on_close=on_close)
+                                    on_open=on_open,
+                                    on_message=on_message,
+                                    on_error=on_error,
+                                    on_close=on_close)
     ws_thread = threading.Thread(target=ws.run_forever)
     ws_thread.start()
 
     try:
         while True:
-            with data_available:
-                data_available.wait()
-                data = data_queue.get()
-            print("Data received: " + str(data))
-            ws.send(json.dumps(data))
-
+            try:
+                data = data_queue.get(timeout=1)
+                print("Data received: " + str(data))
+                ws.send(json.dumps(data))
+            except queue.Empty:
+                pass
     except KeyboardInterrupt:
         observer.stop()
-        ws.close()
-    observer.join()
-    print("end of script")
+    except Exception as e:
+        print(f"Unexpected error occurred: {e}")
+    finally:
+        ws.close()  # Close the WebSocket connection properly
+        observer.join()
 
 
 if __name__ == "__main__":
