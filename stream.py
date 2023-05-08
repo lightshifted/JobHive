@@ -55,6 +55,14 @@ def on_error(ws, error):
 def on_close(ws):
     print("WebSocket connection closed.")
 
+global ws
+ws = websocket.WebSocketApp(ws_url,
+                                on_open=on_open,
+                                on_message=on_message,
+                                on_error=on_error,
+                                on_close=on_close)
+ws_thread = threading.Thread(target=ws.run_forever)
+ws_thread.start()
 
 def monitor_directory(path: str, data_queue: queue.Queue = data_queue):
     """
@@ -74,14 +82,6 @@ def monitor_directory(path: str, data_queue: queue.Queue = data_queue):
     observer.schedule(event_handler, path, recursive=True)
     observer.start()
 
-    ws = websocket.WebSocketApp(ws_url,
-                                    on_open=on_open,
-                                    on_message=on_message,
-                                    on_error=on_error,
-                                    on_close=on_close)
-    ws_thread = threading.Thread(target=ws.run_forever)
-    ws_thread.start()
-
     try:
         while True:
             try:
@@ -95,7 +95,7 @@ def monitor_directory(path: str, data_queue: queue.Queue = data_queue):
     except Exception as e:
         print(f"Unexpected error occurred: {e}")
     finally:
-        ws.close()  # Close the WebSocket connection properly
+          # Close the WebSocket connection properly
         observer.join()
 
 

@@ -31,7 +31,11 @@
 
         ws.addEventListener("close", (event) => {
             console.log("WebSocket connection closed:", event);
+            console.log("Close code:", event.code);
+            console.log("Close reason:", event.reason);
         });
+
+
     </script>
 </body>
 </html>

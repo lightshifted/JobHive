@@ -8,6 +8,7 @@ from langchain.llms import PromptLayerOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains.question_answering import load_qa_chain
 from dotenv import load_dotenv
+from pathlib import Path
 
 class DocSummarizer:
     def __init__(self, db_dir="../client_data/chroma",
@@ -17,7 +18,10 @@ class DocSummarizer:
         load_dotenv()
 
     def get_documents(self):
-        loader = PyMuPDFLoader(self.file_path)
+        file_path = Path(self.file_path)
+        if not file_path.exists():
+            raise FileNotFoundError(f"File not")
+        loader = PyMuPDFLoader(str(self.file_path))
         docs = loader.load()
         text_splitter = CharacterTextSplitter(
             chunk_size=1000,

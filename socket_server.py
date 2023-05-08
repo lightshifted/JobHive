@@ -3,6 +3,11 @@ import websockets
 
 connected_clients = set()
 
+import asyncio
+import websockets
+
+connected_clients = set()
+
 async def handle_websocket(websocket):
     """
     A callback function to handle incoming WebSocket connections.
@@ -11,8 +16,9 @@ async def handle_websocket(websocket):
     connected_clients.add(websocket)
 
     try:
-        async for message in websocket:
-            print(f"Received message from client: {message}")
+        while True:
+            message = await websocket.recv()
+            print(f"Received message from client")
 
             # Broadcast the message to all connected clients except the sender
             for client in connected_clients:
@@ -25,6 +31,7 @@ async def handle_websocket(websocket):
     finally:
         connected_clients.remove(websocket)
         print(f"WebSocket client disconnected: {websocket.remote_address}")
+
 
 async def start_websocket_server():
     """
