@@ -1,0 +1,52 @@
+.agent-response-card {
+  background-color: #f0f2f5;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  padding: 2rem;
+  margin: 1rem;
+  height: 95vh;
+}
+
+.agent-response-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #001529;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.agent-response-list {
+  max-height: 1142px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.agent-response-list-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.agent-response-list-item:last-child {
+  border-bottom: none;
+}
+
+.agent-response-inner-card {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.agent-response-inner-card .ant-typography {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.5;
+}

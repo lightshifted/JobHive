@@ -1,0 +1,77 @@
+.file-upload-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f6f8fb;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.dropbox-header {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.67rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.dragger {
+  min-width: 380px;
+}
+
+.ant-upload-drag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background-color: #ffffff;
+  border: 2px dashed #e9e8e8;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 380px;
+  transition: all 0.3s;
+}
+
+.ant-upload-drag:hover {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 4px rgba(24, 144, 255, 0.06);
+}
+
+.ant-upload-text {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.ant-upload-hint {
+  font-size: 14px;
+  color: #999;
+}
+
+.file-upload-success {
+  margin-top: 1rem;
+  color: #4caf50;
+  font-weight: 500;
+}
+
+/* Media query for iPhone SE */
+@media (max-width: 667px) {
+  .file-upload-window {
+    padding: 1rem;
+  }
+
+  .dropbox-header {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .ant-upload-text {
+    font-size: 16px;
+  }
+
+  .ant-upload-drag {
+    padding: 2rem;
+    max-width: 320px;
+  }
+}

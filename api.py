@@ -3,6 +3,7 @@ import json
 import shutil
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+import subprocess
 import threading
 
 from agent_actors.run import JobHive
@@ -24,6 +25,23 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+def activate_agents():
+    def run_jobhive():
+        job_hive = JobHive()
+        try:
+            job_hive.run()
+        except Exception as e:
+            print(f"500 - Error activating agents: {e}")
+        except KeyboardInterrupt:
+            print("Tasks were interrupted by user")
+
+    thread = threading.Thread(target=run_jobhive)
+    thread.start()
+
+    return {"message": "Agents' tasks have started!"}
+
+
 @app.post('/api/file-upload')
 async def upload_file(file: UploadFile = File(...)):
     if file:
@@ -37,6 +55,8 @@ async def upload_file(file: UploadFile = File(...)):
         # Saving pdf for use with Chroma
         with open(file_path, 'wb') as f:
             shutil.copyfileobj(file.file, f)
+
+        activate_agents()
 
     return {"message": "200 - File uploaded successfully"}
 
