@@ -19,7 +19,7 @@ const Home = () => {
     return (
         <div>
             <Button onClick={handleComponentSwitch}>
-                {showComponent === "upload" ? "Show Agent Response" : "Show File Upload Window"}
+                {showComponent === "upload" ? "Agent Response Display" : "File Upload Display"}
             </Button>
             {showComponent === "response" && <AgentResponse />}
             {showComponent === "upload" && (

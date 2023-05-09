@@ -49,7 +49,7 @@ class JobHive:
         ray.init()
 
     def create_child(
-        self, name: str, traits: List[str], max_iterations=3
+        self, name: str, traits: List[str], max_iterations=5
     ) -> ChildAgent:
         return ChildAgent(
             name=name,
