@@ -37,16 +37,19 @@ poetry run uvicorn api:app --reload
 ```
 
 <h4>2️⃣ Start Websockets</h4>
+
 ```bash
 poetry run python socket_server.py
 ```
 
 <h4>3️⃣ Start Stream</p></h4>
+
 ```bash
 poetry run python stream.py
 ```
 
 <h4>4️⃣ Start Frontend</h4>
+
 ```bash
 /frontend$ npm start
 ```
