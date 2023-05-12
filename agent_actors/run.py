@@ -18,6 +18,8 @@ from agent_actors.parent import ParentAgent
 from agent_actors.toolkit import default_toolkit
 from agent_actors.generate_summary import DocSummarizer
 
+ray.init()
+
 class JobHive:
     llm: BaseChatModel
     long_term_memory: BaseRetriever
@@ -35,7 +37,7 @@ class JobHive:
             model_name="gpt-3.5-turbo",
             callback_manager=self.callback_manager,
             max_tokens=1024,
-            streaming=True
+            streaming=True,
         )
         self.tools = default_toolkit()
         self.long_term_memory = TimeWeightedVectorStoreRetriever(
@@ -46,7 +48,7 @@ class JobHive:
                 index_to_docstore_id={},
             )
         )
-        ray.init()
+
 
     def create_child(
         self, name: str, traits: List[str], max_iterations=5

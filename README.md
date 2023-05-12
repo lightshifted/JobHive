@@ -7,6 +7,8 @@
 </p>
 <h5 align="center">
 
+![Alt Text](_activate.gif)
+
 
 ## Table of Contents
 
@@ -17,8 +19,6 @@
   - [📥 Clone Repo](#-clone-repo)
   - [🔧 Install](#-install)
   - [🔑 Set Secret API Keys](#-set-secret-api-keys)
-  - [📄 Place Resume in `documents` Folder](#-place-resume-in-documents-folder)
-  - [🏃🏽‍♂️ Run JobHive](#️-run-jobhive)
 - [🌟 Contribute to JobHive 🌟](#-contribute-to-jobhive-)
   - [Improving Agent-Actors](#improving-agent-actors)
   - [🔥 Issues 🔥](#-issues-)
@@ -36,37 +36,20 @@ These steps run JobHive after you've completed the initial setup (see: [Getting 
 poetry run uvicorn api:app --reload
 ```
 
-<h4>2️⃣ Upload a resume</p></h4>
-
-![Alt Text](_upload.gif)
-
-Be sure to rename the resume file to `doc.pdf`
-
-<h4>3️⃣ Activate agent-actors</h4>
-
+<h4>2️⃣ Start Websockets</h4>
 ```bash
-curl http://localhost:8000/api/activate
+poetry run python socket_server.py
 ```
 
-You can switch to the server terminal to view agent-actor output in real-time.
-
-![Alt Text](_activate.gif)
-
-<h4>4️⃣ View results</h4>
-
-<h5>Tasks</h5>
-
+<h4>3️⃣ Start Stream</p></h4>
 ```bash
-curl http://localhost:8000/api/agent-profiles
+poetry run python stream.py
 ```
 
-<h5>Memories</h5>
-
+<h4>4️⃣ Start Frontend</h4>
 ```bash
-curl http://localhost:8000/api/agent-memories
+/frontend$ npm start
 ```
-
-I am currently building out the client-side interface that renders the results in a more user-friendly way. An example of rendered output can be viewed [here](rendered_output.pdf). For now, you can view the results in the server terminal using the `curl` commands above.
 
 ## Getting Started
 ### Prerequisites
@@ -91,16 +74,6 @@ OPENAI_API_KEY=
 SERPER_API_KEY=
 WOLFRAM_ALPHA_APPID=
 PROMPTLAYER_API_KEY=
-```
-
-### 📄 Place Resume in `documents` Folder
-![Alt Text](_upload.gif)
-
-Be sure to rename the resume file to `doc.pdf`
-
-### 🏃🏽‍♂️ Run JobHive
-```bash
-poetry run python jobhive.py
 ```
 
 ## 🌟 Contribute to JobHive 🌟
