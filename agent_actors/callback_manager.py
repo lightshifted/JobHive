@@ -5,28 +5,17 @@ import os
 from datetime import datetime
 from typing import Optional
 
-<<<<<<< HEAD
-from langchain.callbacks import CallbackManager, StdOutCallbackHandler
-
-class ConsolePrettyPrintManager(CallbackManager):
-    def __init__(self, handlers: List[StdOutCallbackHandler] = None):
-=======
 from langchain.callbacks import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 
 class ConsolePrettyPrintManager(CallbackManager):
     def __init__(self, handlers: List[StreamingStdOutCallbackHandler] = None):
->>>>>>> stream
         super().__init__(handlers=handlers)
         self.handlers.append(ConsolePrettyPrinter())
 
 
-<<<<<<< HEAD
-class ConsolePrettyPrinter(StdOutCallbackHandler):
-=======
 class ConsolePrettyPrinter(StreamingStdOutCallbackHandler):
->>>>>>> stream
     def __init__(
         self, file_path: Optional[str] = "./client_data/agent_interactions",
     ):
