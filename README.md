@@ -7,11 +7,8 @@
 </p>
 <h5 align="center">
 
-<<<<<<< HEAD
-=======
 ![Alt Text](_activate.gif)
 
->>>>>>> stream
 
 ## Table of Contents
 
@@ -22,11 +19,6 @@
   - [📥 Clone Repo](#-clone-repo)
   - [🔧 Install](#-install)
   - [🔑 Set Secret API Keys](#-set-secret-api-keys)
-<<<<<<< HEAD
-  - [📄 Place Resume in `documents` Folder](#-place-resume-in-documents-folder)
-  - [🏃🏽‍♂️ Run JobHive](#️-run-jobhive)
-=======
->>>>>>> stream
 - [🌟 Contribute to JobHive 🌟](#-contribute-to-jobhive-)
   - [Improving Agent-Actors](#improving-agent-actors)
   - [🔥 Issues 🔥](#-issues-)
@@ -44,40 +36,6 @@ These steps run JobHive after you've completed the initial setup (see: [Getting 
 poetry run uvicorn api:app --reload
 ```
 
-<<<<<<< HEAD
-<h4>2️⃣ Upload a resume</p></h4>
-
-![Alt Text](_upload.gif)
-
-Be sure to rename the resume file to `doc.pdf`
-
-<h4>3️⃣ Activate agent-actors</h4>
-
-```bash
-curl http://localhost:8000/api/activate
-```
-
-You can switch to the server terminal to view agent-actor output in real-time.
-
-![Alt Text](_activate.gif)
-
-<h4>4️⃣ View results</h4>
-
-<h5>Tasks</h5>
-
-```bash
-curl http://localhost:8000/api/agent-profiles
-```
-
-<h5>Memories</h5>
-
-```bash
-curl http://localhost:8000/api/agent-memories
-```
-
-I am currently building out the client-side interface that renders the results in a more user-friendly way. An example of rendered output can be viewed [here](rendered_output.pdf). For now, you can view the results in the server terminal using the `curl` commands above.
-
-=======
 <h4>2️⃣ Start Websockets</h4>
 
 ```bash
@@ -96,7 +54,6 @@ poetry run python stream.py
 /frontend$ npm start
 ```
 
->>>>>>> stream
 ## Getting Started
 ### Prerequisites
 
@@ -122,19 +79,6 @@ WOLFRAM_ALPHA_APPID=
 PROMPTLAYER_API_KEY=
 ```
 
-<<<<<<< HEAD
-### 📄 Place Resume in `documents` Folder
-![Alt Text](_upload.gif)
-
-Be sure to rename the resume file to `doc.pdf`
-
-### 🏃🏽‍♂️ Run JobHive
-```bash
-poetry run python jobhive.py
-```
-
-=======
->>>>>>> stream
 ## 🌟 Contribute to JobHive 🌟
 
 Thank you for considering contributing to JobHive! Below are some immediate needs that I have identified, but I welcome any contributions that you think could help optimize the project.
