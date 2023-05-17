@@ -1,11 +1,7 @@
 import ray
-<<<<<<< HEAD
-
-=======
 from dotenv import load_dotenv
 
 load_dotenv()
->>>>>>> stream
 
 @ray.remote(max_restarts=3, max_task_retries=3)
 class AgentActor:
