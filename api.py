@@ -2,11 +2,8 @@ import os
 import json
 import shutil
 from fastapi import FastAPI, File, UploadFile
-<<<<<<< HEAD
-=======
 from fastapi.middleware.cors import CORSMiddleware
 import threading
->>>>>>> stream
 
 from agent_actors.run import JobHive
 
@@ -18,8 +15,6 @@ from utils.style_outputs import (
 
 app = FastAPI()
 
-<<<<<<< HEAD
-=======
 # Configure CORS Middleware
 app.add_middleware(
     CORSMiddleware,
@@ -46,7 +41,6 @@ def activate_agents():
     return {"message": "Agents' tasks have started!"}
 
 
->>>>>>> stream
 @app.post('/api/file-upload')
 async def upload_file(file: UploadFile = File(...)):
     if file:
@@ -61,14 +55,9 @@ async def upload_file(file: UploadFile = File(...)):
         with open(file_path, 'wb') as f:
             shutil.copyfileobj(file.file, f)
 
-<<<<<<< HEAD
-    return {"message": "200 - File uploaded successfully"}
-
-=======
         activate_agents()
 
     return {"message": "200 - File uploaded successfully"}
->>>>>>> stream
 
 @app.get('/api/activate')
 def start_agents():
@@ -208,4 +197,3 @@ async def get_results():
 
     response_data = {"matching_files": matching_files, "results": results}
     return response_data
-
