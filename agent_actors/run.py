@@ -16,7 +16,13 @@ from agent_actors.callback_manager import ConsolePrettyPrintManager
 from agent_actors.child import ChildAgent
 from agent_actors.parent import ParentAgent
 from agent_actors.toolkit import default_toolkit
+<<<<<<< HEAD
 from agent_actors.summarizer import DocSummarizer
+=======
+from agent_actors.generate_summary import DocSummarizer
+
+ray.init()
+>>>>>>> stream
 
 class JobHive:
     llm: BaseChatModel
@@ -35,6 +41,10 @@ class JobHive:
             model_name="gpt-3.5-turbo",
             callback_manager=self.callback_manager,
             max_tokens=1024,
+<<<<<<< HEAD
+=======
+            streaming=True,
+>>>>>>> stream
         )
         self.tools = default_toolkit()
         self.long_term_memory = TimeWeightedVectorStoreRetriever(
@@ -45,10 +55,17 @@ class JobHive:
                 index_to_docstore_id={},
             )
         )
+<<<<<<< HEAD
         ray.init()
 
     def create_child(
         self, name: str, traits: List[str], max_iterations=3
+=======
+
+
+    def create_child(
+        self, name: str, traits: List[str], max_iterations=5
+>>>>>>> stream
     ) -> ChildAgent:
         return ChildAgent(
             name=name,

@@ -2,6 +2,11 @@ import os
 import json
 import shutil
 from fastapi import FastAPI, File, UploadFile
+<<<<<<< HEAD
+=======
+from fastapi.middleware.cors import CORSMiddleware
+import threading
+>>>>>>> stream
 
 from agent_actors.run import JobHive
 
@@ -13,6 +18,35 @@ from utils.style_outputs import (
 
 app = FastAPI()
 
+<<<<<<< HEAD
+=======
+# Configure CORS Middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # client-side application domain(s)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+def activate_agents():
+    def run_jobhive():
+        job_hive = JobHive()
+        try:
+            job_hive.run()
+        except Exception as e:
+            print(f"500 - Error activating agents: {e}")
+        except KeyboardInterrupt:
+            print("Tasks were interrupted by user")
+
+    thread = threading.Thread(target=run_jobhive)
+    thread.start()
+
+    return {"message": "Agents' tasks have started!"}
+
+
+>>>>>>> stream
 @app.post('/api/file-upload')
 async def upload_file(file: UploadFile = File(...)):
     if file:
@@ -27,8 +61,14 @@ async def upload_file(file: UploadFile = File(...)):
         with open(file_path, 'wb') as f:
             shutil.copyfileobj(file.file, f)
 
+<<<<<<< HEAD
     return {"message": "200 - File uploaded successfully"}
 
+=======
+        activate_agents()
+
+    return {"message": "200 - File uploaded successfully"}
+>>>>>>> stream
 
 @app.get('/api/activate')
 def start_agents():

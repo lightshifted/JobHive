@@ -7,6 +7,11 @@
 </p>
 <h5 align="center">
 
+<<<<<<< HEAD
+=======
+![Alt Text](_activate.gif)
+
+>>>>>>> stream
 
 ## Table of Contents
 
@@ -17,8 +22,11 @@
   - [📥 Clone Repo](#-clone-repo)
   - [🔧 Install](#-install)
   - [🔑 Set Secret API Keys](#-set-secret-api-keys)
+<<<<<<< HEAD
   - [📄 Place Resume in `documents` Folder](#-place-resume-in-documents-folder)
   - [🏃🏽‍♂️ Run JobHive](#️-run-jobhive)
+=======
+>>>>>>> stream
 - [🌟 Contribute to JobHive 🌟](#-contribute-to-jobhive-)
   - [Improving Agent-Actors](#improving-agent-actors)
   - [🔥 Issues 🔥](#-issues-)
@@ -36,6 +44,7 @@ These steps run JobHive after you've completed the initial setup (see: [Getting 
 poetry run uvicorn api:app --reload
 ```
 
+<<<<<<< HEAD
 <h4>2️⃣ Upload a resume</p></h4>
 
 ![Alt Text](_upload.gif)
@@ -68,6 +77,26 @@ curl http://localhost:8000/api/agent-memories
 
 I am currently building out the client-side interface that renders the results in a more user-friendly way. An example of rendered output can be viewed [here](rendered_output.pdf). For now, you can view the results in the server terminal using the `curl` commands above.
 
+=======
+<h4>2️⃣ Start Websockets</h4>
+
+```bash
+poetry run python socket_server.py
+```
+
+<h4>3️⃣ Start Stream</p></h4>
+
+```bash
+poetry run python stream.py
+```
+
+<h4>4️⃣ Start Frontend</h4>
+
+```bash
+/frontend$ npm start
+```
+
+>>>>>>> stream
 ## Getting Started
 ### Prerequisites
 
@@ -93,6 +122,7 @@ WOLFRAM_ALPHA_APPID=
 PROMPTLAYER_API_KEY=
 ```
 
+<<<<<<< HEAD
 ### 📄 Place Resume in `documents` Folder
 ![Alt Text](_upload.gif)
 
@@ -103,6 +133,8 @@ Be sure to rename the resume file to `doc.pdf`
 poetry run python jobhive.py
 ```
 
+=======
+>>>>>>> stream
 ## 🌟 Contribute to JobHive 🌟
 
 Thank you for considering contributing to JobHive! Below are some immediate needs that I have identified, but I welcome any contributions that you think could help optimize the project.
