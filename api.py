@@ -24,6 +24,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# create required directories
+if not os.path.exists("./client_data/agent_interactions"):
+    os.makedirs("./client_data/agent_interactions")
+
+if not os.path.exists("./client_data/documents"):
+    os.makedirs("./client_data/documents")
+
 
 def activate_agents():
     def run_jobhive():
